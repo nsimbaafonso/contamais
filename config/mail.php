@@ -3,8 +3,8 @@
 define('MAIL_HOST', 'smtp.gmail.com');
 define('MAIL_PORT', 587);
 
-define('MAIL_USERNAME', 'nsimbaafonso0@gmail.com');
-define('MAIL_PASSWORD', 'bfxa sutx owbt zkcg');
+define('MAIL_USERNAME', '');
+define('MAIL_PASSWORD', '');
 
 define('MAIL_FROM_ADDRESS', MAIL_USERNAME);
 define('MAIL_FROM_NAME', 'ContaMais');
