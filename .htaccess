@@ -1,0 +1,22 @@
+RewriteEngine On
+
+# Permitir a página personalizada de erro 403
+RewriteRule ^errors/403\.php$ - [L]
+
+# Bloquear acesso às pastas internas
+RewriteRule ^(config|includes|pages|errors|vendor)(/|$) - [F,L]
+
+# Bloquear ficheiros sensíveis
+<FilesMatch "^(\.env|composer\.(json|lock)|\.htaccess)$">
+    Require all denied
+</FilesMatch>
+
+# Não reescrever ficheiros e pastas existentes
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Encaminhar os pedidos para o index.php
+RewriteRule ^([a-zA-Z0-9-]+)/?$ index.php?page=$1 [QSA,L]
+
+# Página personalizada de erro 403
+ErrorDocument 403 /errors/403.php
